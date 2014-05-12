@@ -75,4 +75,24 @@ best <- function(state, outcome) {
     # sort by name ascending
     minStateSubset <- sort(stateSubset[stateSubset[2]==min(stateSubset[,2],na.rm=TRUE),1]) 
     as.character(minStateSubset[1])
+    
+    ############
+    # An alternative 
+    
+    # state abbr is column 7
+    # hospital name is column 2
+    # outcome data column is selected in outcomeCol
+    # get the state subset, and return data frame with 
+    # hospital name and outcome column values 
+#    stateSubset <- subset(outcomeData, outcomeData[,7]==state & 
+#                              !is.na(as.numeric(outcomeData[,outcomeCol])), 
+#                          select=c(2,outcomeCol))
+#    stateSubset <- data.frame(stateSubset[,1],as.numeric(stateSubset[,2]))
+    # order ascending by outcome rank, then name
+#    stateSubset <- stateSubset[order(stateSubset[,2],stateSubset[,1]),]
+    
+#    if (class(num)=="character" & num=="worst") {num <- nrow(stateSubset)}
+#    if (num > nrow(stateSubset)) return(NA)
+    
+#    as.character(stateSubset[num,1])
 }
